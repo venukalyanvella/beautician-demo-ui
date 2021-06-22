@@ -1,0 +1,26 @@
+#content {
+    width: 84%;
+    margin-left: 16%;
+    margin-top: 0%;
+    position: absolute;
+    top: 80px;
+    overflow: hidden;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+
+.container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}

@@ -1,0 +1,233 @@
+
+
+.card{
+   width: 250px;
+  border-radius: 15px;
+  text-align: center;
+}
+.first {
+  display: block;
+  position: relative;
+  max-width: 100%;
+}
+
+.user-details{
+font-size: 1em;
+
+}
+
+.sidebar{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top:12%;
+  right: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.openbtn{
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.closebtn i:hover {
+  color: crimson;
+  cursor: pointer;
+}
+.openbtn {
+  font-size: 1em;
+  cursor: pointer;
+  background-color: lightseagreen;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: none;
+  height: 35px;
+  text-align: center;
+}
+
+.openbtn:hover {
+  opacity: 0.8;
+}
+
+
+
+.user-img i
+{
+  width: 70px;
+  height: 70px;  
+  border-radius: 35px;
+  background-color: #32393f;
+  
+}
+
+.user-details{
+  font-size: 0.9em;
+  color: black;
+  text-transform: capitalize;
+
+}
+.user-details .user-name{
+  color: #188cf1;
+  font-size: 1em;
+  font-weight: 200;
+  font-weight: bold;
+}
+
+/* pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  cursor: pointer;
+  color: #1667af;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #a7a7a7;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination li {
+  cursor: pointer;
+  color: #1667af;
+  border-radius: 50%;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #a7a7a7;
+  margin: 0 4px;
+}
+
+.pagination li.active {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid #4caf50;
+}
+
+.pagination li:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.isDisable {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+.panel{
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  border: none;
+  width: 450px;
+  margin-left: 25px;
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12);
+  background: #fff;
+}
+
+.panel .panel-heading{
+  /* background: #fff; */
+  padding: 25px 25px 10px;
+  border-radius: 0;
+ 
+}
+
+.panel .panel-heading .title{
+  color: lightseagreen;
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.panel .panel-body{
+  border-radius: 0;
+ /* margin: 15px 20px 15px 0px; */
+
+ }
+
+ .beautician-details .user-image{
+
+  text-align: center;
+  margin-bottom: 15px;
+ 
+ }
+
+ table tr th{
+   border-left: 2px solid lightseagreen;
+   font-size: 0.9em;
+ }
+ table tr td 
+ {
+  font-size: 0.8em;
+
+ }
+ span{
+   text-align: left;
+   font-weight: 2em;
+   font-weight: bolder;
+   padding: 10px;
+   color: lightseagreen;
+ }
+
+.table tr th i{
+  color: lightseagreen;
+  
+}
+.form-btn1{
+  display: flex;
+  justify-content: center;
+
+}
+.form-btn1 button{
+  width: 80%;
+  height: 45px;
+  background: lightseagreen;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  border:0px;
+  outline: none;
+  box-shadow: none;
+  margin-bottom: 13px;
+ 
+}
+
+.form-btn1 button:hover{
+  opacity: 0.8;
+
+}

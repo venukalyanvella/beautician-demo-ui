@@ -1,0 +1,129 @@
+
+
+.card{
+    box-shadow: none;
+    
+    outline: none;
+    padding: 1rem;
+    border-radius: 15px;
+    margin-top: 15px;
+    background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+}
+
+.title img{
+    width: 150px;
+    height:150px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: #fff;
+    align-items: center;
+    background: transparent;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.details{
+   
+    text-align: center;
+
+}
+
+.details p {
+    text-align: center;
+    color: #000;
+    
+
+}
+
+.details .name {
+    letter-spacing: 0.2em;
+    padding: 5px auto;
+}
+.details .skills {
+    text-transform:uppercase;
+    font-weight:bold;
+    color:#fff;
+    letter-spacing:2px;
+    font-size:13px;
+}
+.details .exp{
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+.details .beauty-name{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.track-contents{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+    color: #fff;
+    box-sizing: border-box;
+
+}
+
+.track-details{
+  
+    padding: 10px 10px ;
+    margin: 15px;
+    /* background-color: rgb(40, 86, 224); */
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    color: #fff;
+    border-radius: 50%;
+    place-items:center ;
+
+
+}
+.track-details:hover{
+background-color: rgba(255, 255, 255, 0.12);
+
+}
+
+
+
+.bookbtn{
+    /* padding: 0.8rem; */
+    text-align: center;
+    /* margin: 2px; */
+    color: #ffffff;
+    background: transparent;
+    outline: none;
+    text-transform: uppercase;
+  place-items: center;
+    display: block;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+.bookbtn:hover{
+background-color: rgba(255, 255, 255, 0.12);
+}
+.dot{
+    height: 15px;
+    width: 15px;
+    /* background-color: red; */
+    border-radius: 50%;
+    display:inline-block;
+    left: 90%;
+    top: 10%;
+    position: absolute;
+ }
+ 

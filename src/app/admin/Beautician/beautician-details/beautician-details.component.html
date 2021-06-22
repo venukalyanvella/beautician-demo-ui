@@ -1,0 +1,235 @@
+<div id="content">
+
+  <div class="">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-12 col-lg-12">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col col-sm-9 col-xs-12">
+                <h4 class="title">Beautician Details</h4>
+              </div>
+              <div class="col-sm-3 col-xs-12 text-right">
+                <div class="search-box">
+                  <i class="fa fa-search"></i>
+                  <input type="text" class="form-control" placeholder="search..">
+                </div>
+                <!-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-user"></i> View All Data</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="panel-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th> <input type="checkbox" name="" id=""> </th>
+                  <th>Name</th>
+                  <th>ParlourName</th>
+                  <th> Experience </th>
+                  <th>Place</th>
+                  <th>Contact</th>
+                  <!-- <th> Services</th> -->
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of Beauticians | paginate:{itemsPerPage:ItemsPerPage, currentPage:page, totalItems:total}; let i = index">
+                  <td> <input type="checkbox" name="" id=""> </td>
+                  <td>
+                    <!-- <div class="user_icon">
+                      <img src="images/img1.jpg" alt="">
+                    </div> -->
+                    {{item.beauticianName}}
+                  </td>
+                  <td> {{item.parlourName}} </td>
+                  <td> {{item.experience}} {{item.experience < 1? 'months' : 'years'}} </td>
+                  <td> {{item.place}} </td>
+                  <td> {{item.mobilenumber}} </td>
+                  <!-- <td> {{item.services}} </td> -->
+                  <td>
+                    <span class=" label label-success">Completed</span></td>
+                  <td>
+                    <ul class="action-list">
+                      <li><a class="btn" id="showbtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><em class="fa fa-eye"></em></a></li>
+                      <li><a class="btn" id="editbtn" (click)="openModel(item)"><em class="fa fa-edit"></em></a></li>
+                      <li><a class="btn" (click)="removeBeautician(item.id)"><em class="fa fa-trash"></em></a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col col-xs-6 col-md-4 col-lg-4"> Showing <b>5</b> out of <b>25</b> entries</div>
+              <div class="col-xs-6 col-md-8 col-lg-8">
+                
+                <ul class="pagination hidden-xs pull-right" >
+                  <li><a [ngClass]="{'isDisable':page === 1}" (click)="getPage(page-1)" ><i class="fa fa-angle-double-left"></i></a> </li>
+                  <ul class="pagination" *ngFor="let item of myList">
+                 <li [ngClass]="{'active':page === item}" (click)="getPage(item)"> {{myList}} </li>
+
+                  </ul>
+                  <li><a [ngClass]="{'isDisable':page ===myList.length}" (click)="getPage(page+1)" ><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row" *ngIf="false">
+    <div class="col-md-12">
+      <h3 class="text-center">Beautician Details</h3>
+      <div class="search-field w-50">
+        <div class="input-group">
+          <input type="text" name="searchQuery" class="form-control " [(ngModel)]="searchQuery" placeholder="Search"
+            (input)="onInputSearch()">
+          <div class="input-group-btn">
+            <button class="btn btn-primary" (click)="searchData()" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          <select name="status" id="status">
+            <option value="active">Active</option>
+            <option value="disable">Disable</option>
+            <option value="restore">Restore</option>
+
+          </select>
+        </div>
+      </div>
+      <table class="table  table-hover ">
+
+        <thead>
+          <tr>
+            <th> <input type="checkbox" name="" id=""> </th>
+            <th>Name</th>
+            <th>Beauty Parlour Name</th>
+            <th> Experience </th>
+            <th>Place</th>
+            <th>Contact</th>
+            <th> Services</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let item of Beauticians | paginate:{itemsPerPage:ItemsPerPage, currentPage:page, totalItems:total}; let i = index">
+            <td> <input type="checkbox" name="" id=""> </td>
+            <td> {{item.beautucianName}} </td>
+            <td> {{item.parlourName}} </td>
+            <td> {{item.experience}} {{item.experience < 1? 'months' : 'years'}} </td>
+            <td> {{item.place}} </td>
+            <td> {{item.mobilenumber}} </td>
+            <td> {{item.services}} </td>
+            <td colspan="4"> <button class="btn btn-warning">edit</button>
+              <button class=" btn btn-danger ml-2">Del</button> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <pagination-controls (pageChange)="pageChanged($event)" autoHide="false" responsive="true"
+              screenReaderCurentLabel="Your're on page" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update/Edit beautician</h4>
+        <button type="button" class="close" (click)="closeModel()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-box" #UpdatebeauticianForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="beauticianName">Beautician Name</label>
+                <input type="text" name="beautucianName" class="form-control" id="beautucianName"
+                  [(ngModel)]="beauticianName" placeholder="Beautician Name" required>
+              </div>
+              <div class="form-group">
+                <label for="experience">Experience</label>
+                <input type="text" name="experience" class="form-control" id="experience" [(ngModel)]="experience"
+                  placeholder="Experience " required>
+              </div>
+              <div class="form-group">
+                <label for="beautyparlour name">Beauty Parlour Name</label>
+                <input type="text" name="beautyparlourName" class="form-control" id="beautyparlourName"
+                  [(ngModel)]="beautyparlourName" placeholder="Beauty Parlour Name" required>
+              </div>
+              <div class="form-group">
+                <label for="lawfirmName">Law Firm Name</label>
+                <input type="text" name="lawfirmname" class="form-control" id="lawfirmname" [(ngModel)]="lawfirmname"
+                  placeholder="Law Firm Name" required disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="services">Services</label>
+                <input type="text" name="services" class="form-control" id="services" [(ngModel)]="services"
+                  placeholder="services" required>
+              </div>
+              <div class="form-group">
+                <label for="address"> Place</label>
+                <input type="text" name="place" [(ngModel)]="place" class="form-control" id="place"
+                  placeholder="Place/address/city" required>
+              </div>
+              <div class="form-group">
+                <label for="contact "> Contact Number</label>
+                <input type="number" name="mobilenumber" [(ngModel)]="mobilenumber" class="form-control"
+                  id="mobilenumber" placeholder="contact number" required>
+              </div>
+              <div class="form-group">
+                <label for="ratings">Ratings</label>
+                <select name="ratings" class="form-control" id="rating" [(ngModel)]="ratings">
+                  <option value="default">-- select -- </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="form-group-btn text-center">
+            <button (click)="UpdatebeauticianDetails(UpdatebeauticianForm.value)"
+              class="btn btn-success mx-auto text-center">Save Changes</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

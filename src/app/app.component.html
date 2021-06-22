@@ -1,0 +1,59 @@
+
+
+<div class="wrapper">
+  
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+</div>
+<!-- <app-demo-list></app-demo-list> -->
+
+<div class="container" *ngIf="false">
+  <input type="text" name="myname" [(ngModel)]="myname" id="">
+  <button class="btn btn-success" (click)="myData(myname)">Click</button>
+  <div class="jumbotron">
+    {{word}}
+  </div>
+</div>
+
+
+<div class="team-boxed" *ngIf="false">
+  <div class="container">
+
+    <div class="row people ">
+      <div class="col-md-3 col-lg-3 col-xs-6 item " *ngFor="let beauty of beautician; let i= index">
+        <a href="#" class="btn btn-blue">Click</a>
+
+        <div class=" card w-100 ">
+          <div class="card-title">
+            <img class="img-fluid" width="150px" height="150px" src="/assets/images/user.png" alt="">
+            <span class="dot " [ngClass]=" user ? 'bg-success' :'bg-danger' "></span>
+          </div>
+          <div class="card-body">
+            <h4 class="name">{{beauty.name}}</h4>
+            <p class="title"> {{beauty.skills}} </p>
+            <p> {{beauty.experience}}</p>
+            <p class="parlour-name"> AnticParlour </p>
+            <!-- <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p> -->
+            <div class="social">
+              <button class="btn btn-primary" (change)="userStatus($event)" (click)="BookOp(beauty.name)">Book </button>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+
+
+     
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="col-md-6 col-lg-4 sidebar" *ngIf="SidebarLoad">
+                
+    <app-demo-list  [(beautician)]="currentName"   (onselected)="userSelected(currentName)"
+    ></app-demo-list>
+
+</div> -->

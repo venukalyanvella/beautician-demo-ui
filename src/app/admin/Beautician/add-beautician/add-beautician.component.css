@@ -1,0 +1,112 @@
+
+#content {
+    width: 84%;
+    margin-left: 16%;
+    margin-top: 0%;
+    position: absolute;
+    top: 80px;
+    overflow: hidden;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.card-title h3{
+    color: #627ada;
+    font-style: italic;
+    font-family: sans-serif;
+}
+
+
+
+input, select{
+    height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    color: gray;
+    
+    outline: 0px;
+   box-shadow: none;
+
+
+}
+
+input::placeholder{
+    color: rgb(128, 128, 128);
+    text-transform: capitalize;
+    padding: 1px;
+
+}
+
+.btn-action-generate {
+    color: white;
+    background-color: #6495ED;
+  }
+  
+  .btn-action-generate:hover {
+    color: white;
+    background-color: #627ada;
+  }
+
+  
+.form-btn button {
+    width: 130px;
+    
+    height: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+    box-shadow: none;
+    outline: none;
+    padding: 1px;
+    
+}
+
+.addbtn{
+    background-color: #8da2f5;
+
+}
+
+.resetbtn{
+    
+    background-color: lightgray;
+}
+.addbtn:hover{
+    background-color: #627ada;
+}
+
+.resetbtn:hover{
+    background: gray;
+}
+
+.form-btn button:hover
+{
+    outline: none;
+    border: none;
+    box-shadow: none;
+ 
+
+}
+
+.panel{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    border: none;
+    box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12);
+}
+.panel .panel-heading{
+    background: #fff;
+    padding: 25px 25px 10px;
+    border-radius: 0;
+}
+.panel .panel-heading .title{
+    color: #32393f;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 30px;
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+.panel .panel-body{
+     border-radius: 0;
+    margin: 15px 20px 15px 20px;
+    }

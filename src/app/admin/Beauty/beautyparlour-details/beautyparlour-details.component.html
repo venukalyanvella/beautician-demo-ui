@@ -1,0 +1,150 @@
+<div id="content">
+  <div class="">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-12 col-lg-12">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col col-sm-9 col-xs-12">
+                <h4 class="title">Beauty Parlour Details</h4>
+              </div>
+              <div class="col-sm-3 col-xs-12 text-right">
+                <div class="search-box">
+                  <i class="fa fa-search"></i>
+                  <input type="text" class="form-control" placeholder="search..">
+                </div>
+                <!-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-user"></i> View All Data</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="panel-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" name="" id=""></th>
+                <th>Parlour Name</th>
+                <th>Owner Name</th>
+                <th>Law Firm Name</th>
+                <th>Contact Mail</th>
+                <th>Place</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of Bparlour">
+                  <td> <input type="checkbox" name=""> </td>
+                  <td>{{item.parlourName}} </td>
+                  <td>{{item.ownername}} </td>
+                  <td>{{item.lawfirmname}} </td>
+                  <td>{{item.contactMail}} </td>
+                  <td>{{item.place}} </td>
+                  <td [ngClass]="item.status===0? 'label label-success': 'label label-danger'"> {{item.status === 0 ? 'active':'disable'}}</td>
+                  <td>
+                    <ul class="action-list">
+                      <li><a class="btn" (click)=" openModel(item)"   id="showbtn" ><em class="fa fa-eye"></em></a></li>
+                      <li><a (click)=" openModel(item)"  class="btn" id="editbtn" (click)="updateData(item)"  ><em class="fa fa-edit"></em></a></li>
+                      <li><a class="btn"  (click)="cancelParlour(item.b_id)" ><em class="fa fa-trash"></em></a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col col-xs-6 col-md-4 col-lg-4"> Showing <b>5</b> out of <b>25</b> entries</div>
+              <div class="col-xs-6 col-md-8 col-lg-8">
+                
+                <ul class="pagination hidden-xs pull-right" >
+                  <li><a [ngClass]="{'isDisable':page === 1}" (click)="getPage(page-1)" ><i class="fa fa-angle-double-left"></i></a> </li>
+                  <ul class="pagination" *ngFor="let item of mylist">
+                 <li [ngClass]="{'active':page === item}" (click)="getPage(item)"> {{mylist}} </li>
+
+                  </ul>
+                  <li><a [ngClass]="{'isDisable':page ===mylist.length}" (click)="getPage(page+1)" ><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+ 
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="makeChangesModel">
+  <div class="modal-dialog s" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Change Beauty Parlour Details</h5>
+        <button type="button" class="close" (click)="closeModel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #ParlourForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Parlor Name</label>
+                <input type="text" name="parlourName" class="form-control" id="parlourname" [(ngModel)]="parlourName"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="owner">Owner Name</label>
+                <input type="text" name="ownername" class="form-control" id="ownername" [(ngModel)]="ownername"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="law">Law Firm Name</label>
+                <input type="text" name="lawfirmname" class="form-control" id="lafirmname" [(ngModel)]="lawfirmname"
+                  required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="contact">Contact Mail</label>
+                <input type="text" name="contactMail" class="form-control" id="contactmail" [(ngModel)]="contactMail"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="address">PLace/Address</label>
+                <input type="text" name="place" [(ngModel)]="place" class="form-control" id="place" required>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="service"> Are You Want To Add/Change Services &nbsp; </label>
+            <input type="checkbox" name="serviceCheck" id="service" (click)="serviceChange($event)">
+          </div>
+          <ng-container class="services" *ngIf="serviceChanges">
+            this is services block changes happens
+          </ng-container>
+          <div class="form-group text-center mx-auto">
+            <button class="btn btn-warning" (click)="makeChangeSave(ParlourForm.value)">Save Changes</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>

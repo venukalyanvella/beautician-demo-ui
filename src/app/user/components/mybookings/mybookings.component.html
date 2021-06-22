@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center display-4 text-primary">
+        Manage Bookings
+      </div>
+    </div>
+    <div class="col-md-6 mt-3 mb-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Here...." name="searchName"
+          [(ngModel)]="searchName">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button" (click)="searchData(searchName)">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="myBookings && myBookings.length > 0 else elseBlock">
+    <div class="col-md-12">
+      <table class="table table-hover table-bordered w-100 h-50">
+        <tbody>
+          <tr>
+            <th>Id</th>
+            <th> Date</th>
+            <th>Time</th>
+            <th>Beauty Parlour</th>
+            <th>Beautician Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let item of myBookings | paginate:{itemsPerPage:rowsOnPage, currentPage:page, totalItems:count}; let i = index">
+            <td>{{i}}</td>
+            <td> {{item.date |date}} </td>
+            <td> {{item.time }}</td>
+            <td> {{item.parlourName}} </td>
+            <td> {{item.beauticianName}} </td>
+            <td [ngClass]="item.bookingStatus===0? 'text text-danger':'text text-success'"> {{item.bookingStatus===0 ? 'pending': 'completed'}} </td>
+            <td class="p-2" colspan="2 "> <button class="btn btn-warning"
+                (click)="openModel(item.bookingid,item)"> <i class="fa fa-pencil"></i> </button>
+              <button class="btn btn-danger ml-2" (click)="cancelBooking(item.booking_id)"> <i class=" fa fa-trash"></i> </button> </td>
+          </tr>
+        </tbody>
+        <tfoot *ngIf="false">
+          <tr>
+            <td colspan="7" class="text-center">
+              <pagination-controls (pageChange)="pageChanged($event)"
+              autoHide="false" responsive="true" 
+              screenReaderCurentLabel="Your're on page"
+              previousLabel="Previous" nextLabel="Next"
+              ></pagination-controls>
+            </td>
+          </tr>
+
+        </tfoot>
+
+      </table>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class=" text-center">
+      <ng-template #elseBlock>
+        <span class=" text-center text-danger display-4"> --- No Booking Found ---</span>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<!-- Pagination -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="makeChangesModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Change Appointment Details</h5>
+        <button type="button" class="close" (click)="closeModel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #changeAppointment="ngForm">
+          <input type="hidden" name="id" class="form-control" [(ngModel)]="id">
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="date" required name="date">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="time" name="time" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="lawfirmName" name="lawfirmName" readonly>
+          </div>
+          <button class="btn btn-success" (click)="makeChagesOnBookings(changeAppointment.value)">Save Changes</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

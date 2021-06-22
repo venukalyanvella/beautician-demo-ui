@@ -1,0 +1,118 @@
+
+.wrapper{
+ 
+}
+
+
+.team-boxed {
+    color:#313437;
+    background-color:#eef4f7;
+    justify-content: center;
+
+  }  
+  .team-boxed .people {
+    padding:50px 0;
+  }
+  .card{
+    text-align: center;
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  }
+
+  .card img{
+
+    width: 100px;
+    margin-top: 15px;
+    border: 3px solid rgb(43, 175, 228);
+    border-radius: 50%;
+    height: 100px;
+  }
+
+  .card p{
+    margin-top: -5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+      color: #d0d0d0;
+  }
+  .name{
+    text-transform: capitalize;
+    font-size: 20px;
+    text-align: center;
+  }
+  .parlour-name{
+    text-align: center;
+    padding:0em;
+    color: black;
+    font-size: 15px;
+
+  }
+  .team-boxed .item {
+    text-align:center;
+  }
+  
+  .team-boxed .item .box {
+    text-align:center;
+    padding:30px;
+    background-color:#fff;
+    margin-bottom:30px;
+  }
+  
+  .team-boxed .item .name {
+    font-weight:bold;
+    margin-top:28px;
+    margin-bottom:8px;
+    color:inherit;
+  }
+  
+  .team-boxed .item .title {
+    text-transform:uppercase;
+    font-weight:bold;
+    color:#d0d0d0;
+    letter-spacing:2px;
+    font-size:13px;
+  }
+  
+  .team-boxed .item .description {
+    font-size:15px;
+    margin-top:15px;
+    margin-bottom:20px;
+  }
+  
+  .team-boxed .item img {
+    max-width:160px;
+  }
+  
+  .team-boxed .social {
+    font-size:18px;
+    color:#a2a8ae;
+    display: inline-block;
+    margin-left: 10px ;
+  }
+.social button {
+  color: #fff;
+  width: 100%;
+  letter-spacing: 1px;
+  
+    background: rgb(43, 175, 228);
+    outline: none;
+    text-transform: uppercase;
+  place-items: center;
+    display: block;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+ 
+
+  .dot{
+     height: 15px;
+     width: 15px;
+     /* background-color: red; */
+     border-radius: 50%;
+     display:inline-block;
+     left: 85%;
+     top: 5%;
+     position: absolute;
+  }
+  
+   

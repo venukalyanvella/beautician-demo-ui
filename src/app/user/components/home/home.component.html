@@ -1,0 +1,294 @@
+
+
+<div class="container"  >
+  <div id="main">
+
+ 
+  <div class="row " >
+      <div class="col-md-4" *ngFor="let item of beautician | paginate:{itemsPerPage:rowsOnPage, currentPage:page, totalItems:total}; let i = index"
+     >
+          <div class=" card box-1">
+              <div class="first">
+               
+                <div class="user-img mt-3 mb-3">
+                  <img
+                  src="../../assets/images/user.png"
+                  alt="_profile"
+                  class="img-responsive rounded-image img-fluid"
+                  width="60"
+                  height="60"
+                />
+                </div>
+                <div class="user-details">
+                  <div class="title text-center">
+                    <span>{{ item.beauticianName }}</span>
+                  </div>
+                  <div class="sub-titles text-center">
+                    <p class="experience">{{ item.experience }} Years</p>
+                    <!-- <p class="skills">{{ item.skills }}</p> -->
+                    <p class="beauty-name">{{ item.parlourName}}</p>
+                    <div class="ratings" *ngIf="false">
+                      <i class="fa fa-star" style="color: yellow"></i
+                      ><i class="fa fa-star" style="color: yellow"></i
+                      ><i class="fa fa-star" style="color: yellow"></i
+                      ><i class="fa fa-star" style="color: yellow"></i
+                      ><i class="fa fa-star" style="color: yellow"></i>
+                    </div>
+                      <div class="form-btns">
+                        <button class="btn btn-success openbtn mb-2" (click)="openNav(item)">Show</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <br>
+      </div>
+  </div>
+</div>
+</div>
+
+ <!-- panel -->
+ <div class="panel sidebar"  id="mySidebar">
+  <div class="panel-heading">
+    <h3>Beautician   <a class="closebtn" (click)="closeNav()"> <i class="fa fa-times" aria-hidden="true"></i>
+    </a> </h3>
+  </div>
+  <div class="panel-body">
+      
+    <div class="beautician-details">
+      <div class="user-image">
+        <img src="/assets/images/user.png" width="100" height="100" alt="">
+      </div>
+      <div class="details">
+        <table class="table">
+          <span>Personal Details</span>
+         <tr>
+
+          <th> <i class=" fa fa-user-o"></i> Beautician Name</th>
+          <td> {{beauticianName}} </td>
+         </tr>
+         <tr>
+           <th> <i class="fa fa-home"></i> Parlour Name</th>
+           <td> {{parlourName}} </td>
+         </tr>
+         <tr>
+           <th> <i class="fa fa-briefcase" aria-hidden="true"></i>
+            Experience</th>
+           <td> {{experience}} </td>
+         </tr>
+         <span>Contact Details</span>
+         <tr>
+          <th> <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            Email </th>
+          <td> {{contactMail}} </td>
+         </tr>
+         <tr>
+           <th> <i class="fa fa-phone" aria-hidden="true"></i>
+            Mobile Number </th>
+           <td> {{mobilenumber}} </td>
+         </tr>
+         <tr>
+           <th> <i class="fa fa-map-marker" aria-hidden="true"></i>
+            Place</th>
+           <td> {{place}} </td>
+         </tr>
+        </table>
+        <div class="form-btn1">
+        <button class="btn btn-primary" type="submit" (click)="openModelForm()" >Schedule Booking</button>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="BeauticianModel" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #appointmentForm="ngForm" class="appointment_form">
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="date"
+              name="date"
+              id="date"
+              placeholder="Slect Date"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="time"
+              class="form-control"
+              name="time"
+              [(ngModel)]="book_time"
+              id="time"
+              placeholder="Select Time"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button
+              class="btn btn-primary"
+              [disabled]="!appointmentForm.valid"
+              (click)="bookSlot($event.target, appointmentForm.value)"
+              type="submit"
+            >
+              Book Slot
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="false" >
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="wrapper">
+        <div id="content">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-md-3"
+                *ngFor="let item of beautician | paginate:{itemsPerPage:rowsOnPage, currentPage:page, totalItems:total}; let i = index"
+                (click)="openSideMenu(item)"
+              >
+                <div>
+                  <div class="card beauty-card">
+                    <span class="dot"></span>
+                    <div class="text-center">
+                      <img
+                        src="../../assets/images/user.png"
+                        alt="_profile"
+                        class="img-responsive rounded-image img-fluid"
+                        width="60"
+                        height="60"
+                      />
+                    </div>
+                    <div class="title text-center">
+                      <span>{{ item.beauticianName }}</span>
+                    </div>
+                    <div class="sub-titles text-center">
+                      <p class="experience">{{ item.experience }} Years</p>
+                      <!-- <p class="skills">{{ item.skills }}</p> -->
+                      <p class="beauty-name">{{ item.parlourName}}</p>
+                      <div class="ratings" *ngIf="false">
+                        <i class="fa fa-star" style="color: yellow"></i
+                        ><i class="fa fa-star" style="color: yellow"></i
+                        ><i class="fa fa-star" style="color: yellow"></i
+                        ><i class="fa fa-star" style="color: yellow"></i
+                        ><i class="fa fa-star" style="color: yellow"></i>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <br />
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="sidebar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="title_details">
+                  <h3>Add Appointment</h3>
+                </div>
+                <div class="main_contents text-center">
+                  <img
+                    src="../../assets/images/user.png"
+                    alt="_profile"
+                    class="img-responsive rounded-image img-fluid"
+                    width="100"
+                    height="100"
+                    alt=""
+                  />
+
+                  <div class="sub_contents">
+                    <p>{{ beauticianData?.name }}</p>
+                    <p>{{ beauticianData?.experience }} Years</p>
+                    <p>{{ beauticianData?.beauty_parlour }}</p>
+                  </div>
+                  <form #appointmentForm="ngForm" class="appointment_form">
+                    <div class="form-group">
+                      <input
+                        type="date"
+                        class="form-control"
+                        [(ngModel)]="book_date"
+                        name="date"
+                        id="date"
+                        placeholder="Slect Date"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="time"
+                        class="form-control"
+                        name="time"
+                        [(ngModel)]="book_time"
+                        id="time"
+                        placeholder="Select Time"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <button
+                        class="btn btn-primary"
+                        [disabled]="!appointmentForm.valid"
+                        (click)="bookSlot($event.target, appointmentForm.value)"
+                        type="submit"
+                      >
+                        Book Slot
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <section>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pagination">
+            <a [ngClass]="{'isDisable':page === 1}" (click)="getPage(page-1)">&laquo; Prev</a>
+            <ul class="list-group list-group-flush" *ngFor="let item of mylist">
+                <li [ngClass]="{'active':page === item}" class="list-group-item" (click)="getPage(item)">{{item}}</li>
+            </ul>
+            <a [ngClass]="{'isDisable':page === mylist.length}" (click)="getPage(page+1)">Next &raquo;</a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div> 
+
+</div>

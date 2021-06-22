@@ -1,0 +1,214 @@
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 80px;
+  right: 0;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.closebtn i:hover {
+  color: crimson;
+  cursor: pointer;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+.search-names {
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12);
+  padding: 2px;
+  margin-bottom: 10px;
+  /* border-radius: 15px; */
+  align-items: center;
+
+
+}
+
+.search-names .titles {
+  color: lightseagreen;
+  margin-left: -15px;
+  font-size: 1.5em;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.search-names .form-group input {
+  width: 100%;
+  border: 1px solid lightseagreen;
+  border-radius: 35px;
+  margin-top: 10px;
+  outline: none;
+  box-shadow: none;
+  transition: 0.2s ease all;
+
+}
+
+.search-names .form-group input:focus {
+  border: 2px solid lightseagreen;
+  transition: 0.2s ease all;
+}
+
+.search-names .form-group select {
+  margin-top: 10px;
+}
+
+.table {
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12);
+
+
+}
+
+tr.active {
+  background-color: greenyellow;
+}
+
+.paginate {
+  display: flex;
+  /* justify-items: flex-end; */
+  align-items: right;
+
+}
+
+ul.pagination li {
+  justify-content: right;
+}
+
+ul.pagination li a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+ul.pagination li a.active {
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 35px;
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: lightseagreen;
+}
+
+.panel {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  border: none;
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12);
+  background: #fff;
+}
+
+.panel .panel-heading {
+  background: #fff;
+  padding: 25px 25px 10px;
+  border-radius: 0;
+
+}
+
+.panel .panel-heading h3 {
+  color: lightseagreen;
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 30px;
+  text-transform: capitalize;
+  text-align: center;
+
+}
+
+.panel .panel-body {
+  border-radius: 0;
+  margin: 0px 25px 15px 25px;
+  height: 500px;
+}
+
+.user-details {
+  display: flex;
+}
+
+.user-details p {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 15px;
+  padding: 2px;
+  margin-left: 5px;
+  color: lightseagreen;
+}
+
+.user-details-list {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-right; */
+}
+
+.bill-form {}
+
+.bill-form input {
+  margin-top: 20px;
+}
+
+.bill-form textarea {
+  height: 250px;
+}
+
+.form-btn {
+  display: block;
+  align-items: center;
+  place-items: center;
+  margin-left: 125px;
+}
+
+.bill-form input,
+textarea:focus {
+
+  outline: none;
+  box-shadow: none;
+}
+
+.form-btn button {
+  background: lightseagreen;
+  color: #fff;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  outline: none;
+  cursor: pointer;
+  border: 0px;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+.isActive {
+    background-color: lightgray;
+}

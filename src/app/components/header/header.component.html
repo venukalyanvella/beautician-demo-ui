@@ -1,0 +1,168 @@
+
+
+<div class="userNavbar" *ngIf="role == 'user' || role == 'beautician'">
+    <nav class="navbar navbar-expand-sm sticky-top bg-dark navbar-dark justify-content-between " >
+        <a  class="navbar-brand">
+            <!-- <img src="images/logo.svg" height="28" alt="Beautician System"> -->
+            <p class="brand-name"> Beautician System</p>
+        </a>
+        <button type="button" class="navbar-toggler disabled" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse " style="margin-right: 70px;" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a [routerLink]="['/user/home']" *ngIf="role=='user'" class="nav-item nav-link active">Home</a>
+                <a [routerLink]="['/beauty-home']" *ngIf="role=='beautician'" class="nav-item nav-link active">Home</a>
+
+                <!-- <a [routerLink]="['/contact']" class="nav-item nav-link">Contact</a> -->
+                <a [routerLink]="['/bookings']" class="nav-item nav-link" *ngIf="auth.isLoggedIn() && role=='user'">My Bookings</a>
+                <a [routerLink]="['/appointment']" class="nav-item nav-link" *ngIf="auth.isLoggedIn() && role =='beautician'">Appointment</a>
+                <a [routerLink]="['/user/reports']" class="nav-item nav-link" *ngIf="auth.isLoggedIn()&& role=='user'" tabindex="-1">Reports</a>
+                <a [routerLink]="['/beauty-report']" class="nav-item nav-link" *ngIf="auth.isLoggedIn() && role=='beautician'" tabindex="-1">Reports</a>
+                <a [routerLink]="['/user/sign-in']" *ngIf="!auth.isLoggedIn()" class="nav-item nav-link">Login</a>
+                
+                <div *ngIf="auth.isLoggedIn()" class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> {{role}}  </a>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/user/profile']" class="dropdown-item"> <i class="fa fa-user"></i> Profile</a>
+                       
+                        <a  class="dropdown-item disable"> <i class="fa fa-cog"></i>  Settings</a>
+                        <a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out"></i> Logout </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<!-- Admin header -->
+
+<div *ngIf="role === 'admin'">
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BS</h3>
+                <strong>BS</strong>
+               
+
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a [routerLink]="['/admin/dashboard']"> <i class="fa fa-home"></i> Home </a>
+                    
+                </li>
+                <li>
+                    
+                    <a href="#pagebeautician" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-home"></i>
+                        Beautician
+                    </a>
+                    <ul class="collapse list-unstyled" id="pagebeautician">
+                        <li>
+                            <a [routerLink]="['/admin/add-beautician']">Add Beautician</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/admin/beautician-list']">Beautician Details</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                   
+                    <a href="#pagebeauty" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-id-card"></i>
+                        Beauty Parlour
+                    </a>
+                    <ul class="collapse list-unstyled" id="pagebeauty">
+                        <li>
+                            <a [routerLink]="['/admin/add-beauty-parlour']">Add Parlour/Services</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/admin/beautyparlour-list']">Beauty Parlour Details</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/admin/beautyservice-list']">Parlour Services List</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/admin/profile']">
+                        <i class="fa fa-image"></i>
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope-o"></i>
+                       Messages
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-paper-plane"></i>
+                        Contact
+                    </a>
+                </li>
+                
+            </ul>
+
+            
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg mt-0">
+                <div class="container-fluid">
+
+                    <h3 class="title-heading">Beautician System</h3>
+                    <div class="">
+                        <div class=" search-form">
+                          <div class="input-group">
+                            <input class="form-control border rounded-pill-left border-right-0" type="search" placeholder="Search" id="example-search-input">
+                            <span class="input-group-append">
+                              <button class="btn btn-outline-secondary border rounded-pill-right border-left-0" type="button">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fa fa-align-left"></i>
+                        <span>Switch/Toggle</span>
+                    </button> -->
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" > <i class="fa fa-envelope-o" style="color: rgb(224, 224, 38); font-weight: bolder;"></i> <span class="badge">5</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" ><i class="fa fa-bell-o" style="color: tomato; font-weight: bolder;"></i> <span class="badge">5</span>  </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="logout()"> <i class="fa fa-sign-out"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            
+        </div>
+    </div>
+
+
+
+</div>

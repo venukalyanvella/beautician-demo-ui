@@ -1,0 +1,124 @@
+<div class="container-fluid">
+
+
+
+  <div class="row">
+    <div class="col-md-8">
+       <div class="search-names">
+        <h3 class="titles"> Appointment List</h3>
+        <div class="form-group">
+            <input type="search" name="searchQuery" id="searchQuery" class="form-control" placeholder="Search....">
+        </div>
+        <div class="form-group">
+            <select name="status" class="form-control">
+                <option value="null" selected disabled>Active</option>
+                <option value="null">Disable</option>
+
+
+            </select>
+        </div>
+       </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"  *ngFor="let item of appDetails">
+                    <div class=" card box-1">
+                        <div class="first">
+                         
+                          <div class="user-img mt-3 mb-3">
+                            <i class="fa fa-user fa-3x"></i>
+                          </div>
+                          <div class="user-details">
+                            <p class="user-name"> {{item.username}} </p>
+                            <p> {{item.date |date}}</p>
+                            <p>{{item.time}}</p>
+                          </div>
+                        </div>
+                        <div class="second">
+                          <p> Perfome An Action</p>
+                          <button class="btn btn-primary 
+                          " (click)="generateReports()" >Report</button>
+                          <button class="btn btn-danger ml-2" (click)="cancelAppointment()"> Cancel </button>
+
+                        </div>
+                      </div>
+                      <br>
+                </div>
+            </div>
+        </div>
+
+        <nav  id="paginationpage">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link"  tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" >1</a></li>
+              <li class="page-item"><a class="page-link" >2</a></li>
+              <li class="page-item"><a class="page-link" >3</a></li>
+              <li class="page-item">
+                <a class="page-link" >Next</a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="title">
+            <p> Booking List</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <ul >
+            <li class="list-items" *ngFor="let item of UserBookings">
+              <div class="img">
+                <i class="fa fa-user fa-2x"> </i>
+              </div>
+              <p> {{item.clientDetails}} </p>
+              <p> {{item.date | date}} </p>
+              <p>{{item.time}}</p>
+              <span class="action-list">
+                <a class="mr-3" (click)="confirmBooking(item)"><i class="fa fa-check fa-1x" style="color: green;"></i>
+                </a>
+                <a (click)="rejectBooking(item)"> <i class="fa fa-times fa-1x" style="color: red;"></i>
+                </a>
+
+              </span>
+            </li>
+            
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Appointment Remove </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         Are You Sure Want to Remove This Appointment
+        </div>
+        <div class="modal-footer text-center mx-auto">
+            <button type="button" class="btn btn-secondary " data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>

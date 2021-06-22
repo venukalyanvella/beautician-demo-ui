@@ -1,0 +1,120 @@
+<div id="content">
+  <div class="">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-12">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col col-sm-9 col-xs-12">
+                <h4 class="title">Beauty Parlour Service List</h4>
+              </div>
+              <div class="col-sm-3 col-xs-12 text-right">
+                <div class="search-box">
+                  <i class="fa fa-search"></i>
+                  <input type="text" class="form-control" placeholder="search..">
+                </div>
+                <!-- <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-user"></i> View All Data</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="panel-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th> <input type="checkbox" name="" id=""> </th>
+
+                  <th>Service Name</th>
+                  <th> Amount </th>
+                  <th> Status </th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of beautyServices">
+                  <td> <input type="checkbox" name="" id=""> </td>
+
+                 
+                  <td> {{item.service_name}} </td>
+                  <td> {{item.amount | currency:INR}} </td>
+                  <td [ngClass]="item.status===0? 'text-success': 'text-danger'">
+                    {{item.status === 0 ? 'active':'disable'}}</td>
+                  <!-- <td><span class="label label-success">Completed</span></td> -->
+                  <td>
+                    <ul class="action-list">
+                      <li><a class="btn" id="showbtn" data-tip="View"><em class="fa fa-eye"></em></a></li>
+                      <li><a class="btn" id="editbtn" data-tip="Edit" (click)="updateData(item)"><em class="fa fa-edit"></em></a></li>
+                      <li><a class="btn" data-tip="Delete" (click)="removeservice(item)"><em class="fa fa-trash"></em></a></li>
+
+                    </ul>
+                  </td>
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col col-xs-6 col-md-4 col-lg-4"> Showing <b>5</b> out of <b>25</b> entries</div>
+              <div class="col-xs-6 col-md-8 col-lg-8">
+
+                <ul class="pagination hidden-xs pull-right">
+                  <li><a [ngClass]="{'isDisable':page === 1}" (click)="getPage(page-1)"><i
+                        class="fa fa-angle-double-left"></i></a> </li>
+                  <ul class="pagination" *ngFor="let item of myList">
+                    <li [ngClass]="{'active':page === item}" (click)="getPage(item)"> {{myList}} </li>
+
+                  </ul>
+                  <li><a [ngClass]="{'isDisable':page ===mylist.length}" (click)="getPage(page+1)"><i
+                        class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="container" *ngIf="false">
+    <div class="row">
+        <div class="col-md-offset-1 ">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-5 col-xs-12">
+                            <h4 class="title">Table Data</h4>
+                        </div>
+                        <div class="col-sm-7 col-xs-12 text-right">
+                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-user"></i> View All Data</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body ">
+                   am venu
+                </div>
+                <div class="panel-footer">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
